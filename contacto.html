@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Carousel Template for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/carousel/carousel.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Afición Gallera</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="informacion.html">Información</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="contacto.html">Contacto</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main">
+
+        <div class="container marketing mt-5">
+            <h1>Contacto</h1>
+            <form method="POST" id="formulario-contacto">
+                <div class="form-group">
+                    <label>Asunto</label>
+                    <input type="asunto" class="form-control" id="asunto" placeholder="Asunto">
+                </div>
+                <div class="form-group">
+                    <label>Correo</label>
+                    <input type="email" class="form-control" id="correo" placeholder="Correo">
+                </div>
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea class="form-control" id="mensaje" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <div class="g-recaptcha" data-sitekey="6LeTc9UeAAAAAOOgL7Wr8TCanIVhaNvAVYiucAZP"></div>
+                </div>
+                <div class="form-group">
+                    <div id="alertas">
+
+                    </div>
+                    <div><div align="center" class="g-recaptcha" data-sitekey=""></div></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+
+        </div>
+
+    </main>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.0/dist/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="https://getbootstrap.com/docs/4.0/assets/js/vendor/holder.min.js"></script>
+
+
+    <script>
+        $('#formulario-contacto').on('submit', function (e) {
+            e.preventDefault()
+            var asunto = $('#asunto').val();
+            var correo = $('#correo').val();
+            var msg = $('#mensaje').val();
+
+            if (asunto == "" || correo == "" || msg == "") {
+                if (asunto == "") {
+                    $('#alertas').html('<div class="alert alert-danger" role="alert">Ingresa un asunto</div>')
+                }
+                else if (correo == "") {
+                    $('#alertas').html('<div class="alert alert-danger" role="alert">Ingresa un correo valido</div>')
+                }
+                else if (msg == "") {
+                    $('#alertas').html('<div class="alert alert-danger" role="alert">Ingresa un mensaje</div>')
+                }
+                return false
+            } else {
+                alert("Mensaje enviado")
+            }
+        });
+    </script>
+</body>
+
+</html>
